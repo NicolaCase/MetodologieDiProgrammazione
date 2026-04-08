@@ -1,32 +1,36 @@
-package it.unicam.cs.mpgc.rpg119138; // <--- Fai attenzione al pacchetto!
+package it.unicam.cs.mpgc.rpg119138;
 
-import it.unicam.cs.mpgc.rpg119138.modello.Eroe;
-import it.unicam.cs.mpgc.rpg119138.modello.Guerriero;
-import it.unicam.cs.mpgc.rpg119138.modello.Arciere;
-import it.unicam.cs.mpgc.rpg119138.modello.Mago;
+// Importiamo le classi dai nuovi sottopacchetti
+import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Eroe;
+import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Guerriero;
+import it.unicam.cs.mpgc.rpg119138.modello.nemici.Mostro;
+import it.unicam.cs.mpgc.rpg119138.modello.nemici.Vampiro;
 
 public class Main {
     public static void main(String[] args) {
-        // Creiamo un Guerriero e lo trattiamo come un "Eroe" generico (Polimorfismo)
-        Eroe Guerriero = new Guerriero("Aragorn");
-        Eroe Mago = new Mago("Merlino");
-        Eroe Arciere = new Arciere("Legolas");
+        // 1. Creazione dei contendenti
+        Eroe giocatore = new Guerriero("Aragorn");
+        Mostro nemico = new Vampiro("Alucard");
 
-        System.out.println("Eroe creato: " + Guerriero.getNome());
-        System.out.println("Vita: " + Guerriero.getPuntiVita());
-        System.out.println("--- Inizio Combattimento ---");
+        System.out.println("--- INIZIO TEST SCONTRO ---");
+        System.out.println(giocatore.getNome() + " (HP: " + giocatore.getPuntiVita() + ") VS "
+                + nemico.getNome() + " (HP: " + nemico.getHp() + ")");
+        System.out.println("---------------------------");
 
-        System.out.println("Eroe creato: " + Mago.getNome());
-        System.out.println("Vita: " + Mago.getPuntiVita());
-        System.out.println("--- Inizio Combattimento ---");
+        // 2. Simulazione Round 1
+        // L'eroe attacca
+        giocatore.attacca();
+        nemico.riceviDanno(giocatore.getForza());
 
-        System.out.println("Eroe creato: " + Arciere.getNome());
-        System.out.println("Vita: " + Arciere.getPuntiVita());
-        System.out.println("--- Inizio Combattimento ---");
+        // Il mostro risponde
+        if (nemico.getHp() > 0) {
+            nemico.attaccaNemico();
+            giocatore.riceviDanno(nemico.getForza());
+        }
 
-        // Chiama l'attacco specifico del Guerriero
-        Guerriero.attacca();
-        Mago.attacca();
-        Arciere.attacca();
+        // 3. Verifiche finali
+        System.out.println("---------------------------");
+        System.out.println("Stato finale HP: " + giocatore.getNome() + ": " + giocatore.getPuntiVita());
+        System.out.println("Stato finale HP: " + nemico.getNome() + ": " + nemico.getHp());
     }
 }
