@@ -1,8 +1,8 @@
 {
-  "nome": "Guerriero",
+  "nome": "Arciere",
   "hp": 140,
-  "livello": 1,
-  "forza": 20,
+  "livello": 0,
+  "forza": 25,
   "mana": 0,
-  "destrezza": 0
+  "destrezza": 1
 }

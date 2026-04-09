@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f295475c-d3c9-48f2-a7e1-4044901bbb76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salvataggio.json" beforeDir="false" afterPath="$PROJECT_DIR$/salvataggio.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Mostro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Mostro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Orco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Orco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Serpente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Serpente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Vampiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/nemici/Vampiro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Arciere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Arciere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Eroe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Eroe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Guerriero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Guerriero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Mago.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/personaggi/Mago.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/CaricamentoFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unicam/cs/mpgc/rpg119138/modello/CaricamentoFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1775635714213</updated>
-      <workItem from="1775635718480" duration="21358000" />
+      <workItem from="1775635718480" duration="22748000" />
     </task>
     <servers />
   </component>

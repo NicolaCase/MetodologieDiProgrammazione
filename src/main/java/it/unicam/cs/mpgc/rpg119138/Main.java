@@ -2,20 +2,19 @@ package it.unicam.cs.mpgc.rpg119138;
 
 import it.unicam.cs.mpgc.rpg119138.modello.CaricamentoFile;
 import it.unicam.cs.mpgc.rpg119138.modello.nemici.Orco;
-import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Guerriero;
+import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Eroe;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         CaricamentoFile loader = new CaricamentoFile();
 
-        // 1. Carichiamo le classi disponibili dal JSON
-        List<Guerriero> classiDisponibili = loader.caricaClassiEroi();
-        Guerriero mioEroe = classiDisponibili.get(0); // Prendiamo il Guerriero dal file eroi.json
+        List<Eroe> classi = loader.caricaClassiEroi();
+        Eroe mioEroe = classi.get(1); // Prende il primo eroe della lista (es. Guerriero)
 
         // 2. Carichiamo i mostri
         List<Orco> nemici = loader.caricaMostri();
-        Orco nemico = nemici.get(0);
+        Orco nemico = nemici.get(1);
 
         System.out.println("Partita iniziata con: " + mioEroe.getNome());
 
