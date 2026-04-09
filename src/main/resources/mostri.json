@@ -1,0 +1,17 @@
+[
+  {
+    "nome": "Orco",
+    "hp": 100,
+    "forza": 15
+  },
+  {
+    "nome": "Vampiro",
+    "hp": 60,
+    "forza": 20
+  },
+  {
+    "nome": "Serpente",
+    "hp": 40,
+    "forza": 10
+  }
+]

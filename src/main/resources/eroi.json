@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Guerriero",
+    "hp": 150,
+    "mana": 0,
+    "destrezza": 0,
+    "forza": 20,
+    "livello": 1
+  },
+  {
+    "nome": "Arciere",
+    "hp": 115,
+    "mana": 0,
+    "destrezza": 25,
+    "forza": 0,
+    "livello": 1
+  },
+  {
+    "nome": "Mago",
+    "hp": 80,
+    "mana": 40,
+    "destrezza": 0,
+    "forza": 0,
+    "livello": 1
+  }
+]

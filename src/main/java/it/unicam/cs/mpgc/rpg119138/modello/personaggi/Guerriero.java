@@ -1,23 +1,15 @@
 package it.unicam.cs.mpgc.rpg119138.modello.personaggi;
 
-public class Guerriero extends Eroe{
+import it.unicam.cs.mpgc.rpg119138.modello.Entita;
 
-    private int doppioColpo; //Attributo specifico Guerriero
+public class Guerriero extends Eroe {
 
-    public Guerriero(String nome){
-        // 'super' chiama il costruttore della classe astratta Eroe
-        // (Nome, 150 Punti Vita, Livello 1)
-        super(nome, 150, 1, 10, 0, 0);
-        this.doppioColpo=20;
-    }
-
-    /**
-     * Implementazione specifica dell'attacco del Guerriero.
-     * Usiamo @Override come buona pratica.
-     */
-
+    public Guerriero(String nome, int hp, int mana, int destrezza, int forza, int livello) {
+        super(nome, hp, mana, destrezza, forza, livello);
+        }
     @Override
-    public void attacca(){
-        System.out.println(getNome() + " Sferra un colpo (Danno: " + getForza() + ")");
+    public void attacca(Entita bersaglio) {
+        // Il Guerriero usa la Forza
+        bersaglio.riceviDanno(this.getForza());
     }
 }

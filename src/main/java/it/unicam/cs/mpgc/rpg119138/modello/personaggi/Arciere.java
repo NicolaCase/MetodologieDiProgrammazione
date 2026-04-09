@@ -1,16 +1,14 @@
 package it.unicam.cs.mpgc.rpg119138.modello.personaggi;
 
+import it.unicam.cs.mpgc.rpg119138.modello.Entita;
+
 public class Arciere extends Eroe {
-
-    private int centro;
-
-    public Arciere(String nome) {
-        super(nome, 125,1,0,0,15);
-        this.centro=25;
+    public Arciere(String nome, int hp, int mana, int destrezza, int forza, int livello) {
+        super(nome, hp, mana, destrezza, forza, livello);
     }
 
     @Override
-    public void attacca(){
-        System.out.println(getNome() + " Scaglia una freccia (Danno: " + getDestrezza() + ")");
+    public void attacca(Entita bersaglio) {
+        bersaglio.riceviDanno(this.getDestrezza());
     }
 }

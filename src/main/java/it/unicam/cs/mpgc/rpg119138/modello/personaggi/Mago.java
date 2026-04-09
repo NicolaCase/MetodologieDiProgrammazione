@@ -1,16 +1,14 @@
 package it.unicam.cs.mpgc.rpg119138.modello.personaggi;
 
+import it.unicam.cs.mpgc.rpg119138.modello.Entita;
+
 public class Mago extends Eroe {
-
-    private int pallaDiFuoco;
-
-    public Mago(String nome) {
-        super(nome, 100,1,0,20,0);
-        this.pallaDiFuoco=30;
+    public Mago(String nome, int hp, int mana, int destrezza, int forza, int livello) {
+        super(nome, hp, mana, destrezza, forza, livello);
     }
 
     @Override
-    public void attacca(){
-        System.out.println(getNome() + " Lancia un incantesimo (Danno: " + getMana() + ")");
+    public void attacca(Entita bersaglio) {
+        bersaglio.riceviDanno(getMana());
     }
 }

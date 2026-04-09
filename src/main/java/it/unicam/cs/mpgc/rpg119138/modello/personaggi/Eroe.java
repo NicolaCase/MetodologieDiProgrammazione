@@ -1,11 +1,13 @@
 package it.unicam.cs.mpgc.rpg119138.modello.personaggi;
 
+import it.unicam.cs.mpgc.rpg119138.modello.Entita;
+
 /**
  * Questa è la classe base astratta per tutti gli eroi.
  * Contiene i dati che ogni personaggio ha (nome, punti vita, livello).
  */
 
-public abstract class Eroe {
+public abstract class Eroe implements Entita {
 
     // Attributi base privati (incapsulamento)
     private String nome;
@@ -25,26 +27,40 @@ public abstract class Eroe {
         this.destrezza=destrezza;
 
     }
-    /**
-     * Metodo astratto: ogni classe figlia (Guerriero, Mago, ecc.)
-     * dovrà decidere COME attaccare.
-     */
-    public abstract void attacca();
 
+    //implementazione attacco base
+    // Rendiamo l'attacco astratto: ogni eroe attacca in modo diverso!
+    @Override
+    public abstract void attacca(Entita bersaglio);
+
+    @Override
     public void riceviDanno(int danno) {
         this.hp -= danno;
         if (this.hp < 0) this.hp = 0;
-        System.out.println(this.nome + " ha ricevuto " + danno + " danni! HP rimanenti: " + this.hp);
     }
 
     // Getter (necessari per il Serializzatore JSON del Prof)
 
+    @Override
     public String getNome() {
         return nome;
     }
-    public int getPuntiVita() {
+
+    @Override
+    public int getHp() {
         return hp;
     }
+
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    @Override
+    public boolean isVivo() {
+        return this.hp > 0;
+    }
+
     public int getLivello() {
         return livello;
     }

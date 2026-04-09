@@ -1,36 +1,32 @@
 package it.unicam.cs.mpgc.rpg119138;
 
-// Importiamo le classi dai nuovi sottopacchetti
-import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Eroe;
+import it.unicam.cs.mpgc.rpg119138.modello.CaricamentoFile;
+import it.unicam.cs.mpgc.rpg119138.modello.nemici.Orco;
 import it.unicam.cs.mpgc.rpg119138.modello.personaggi.Guerriero;
-import it.unicam.cs.mpgc.rpg119138.modello.nemici.Mostro;
-import it.unicam.cs.mpgc.rpg119138.modello.nemici.Vampiro;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Creazione dei contendenti
-        Eroe giocatore = new Guerriero("Aragorn");
-        Mostro nemico = new Vampiro("Alucard");
+        CaricamentoFile loader = new CaricamentoFile();
 
-        System.out.println("--- INIZIO TEST SCONTRO ---");
-        System.out.println(giocatore.getNome() + " (HP: " + giocatore.getPuntiVita() + ") VS "
-                + nemico.getNome() + " (HP: " + nemico.getHp() + ")");
-        System.out.println("---------------------------");
+        // 1. Carichiamo le classi disponibili dal JSON
+        List<Guerriero> classiDisponibili = loader.caricaClassiEroi();
+        Guerriero mioEroe = classiDisponibili.get(0); // Prendiamo il Guerriero dal file eroi.json
 
-        // 2. Simulazione Round 1
-        // L'eroe attacca
-        giocatore.attacca();
-        nemico.riceviDanno(giocatore.getForza());
+        // 2. Carichiamo i mostri
+        List<Orco> nemici = loader.caricaMostri();
+        Orco nemico = nemici.get(0);
 
-        // Il mostro risponde
-        if (nemico.getHp() > 0) {
-            nemico.attaccaNemico();
-            giocatore.riceviDanno(nemico.getForza());
-        }
+        System.out.println("Partita iniziata con: " + mioEroe.getNome());
 
-        // 3. Verifiche finali
-        System.out.println("---------------------------");
-        System.out.println("Stato finale HP: " + giocatore.getNome() + ": " + giocatore.getPuntiVita());
-        System.out.println("Stato finale HP: " + nemico.getNome() + ": " + nemico.getHp());
+        // 3. Combattimento
+        mioEroe.attacca(nemico);
+        System.out.println("HP " + nemico.getNome() + " scesi a: " + nemico.getHp());
+
+        // 4. Simuliamo un cambiamento (l'eroe guadagna vita o scende)
+        mioEroe.setHp(140);
+
+        // 5. Salviamo lo stato attuale
+        loader.salvaPartita(mioEroe);
     }
 }
