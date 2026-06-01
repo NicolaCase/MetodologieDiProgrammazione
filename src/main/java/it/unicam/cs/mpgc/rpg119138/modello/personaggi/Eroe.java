@@ -1,79 +1,74 @@
 package it.unicam.cs.mpgc.rpg119138.modello.personaggi;
 
-import it.unicam.cs.mpgc.rpg119138.modello.Entita;
-
-/**
- * Questa è la classe base astratta per tutti gli eroi.
- * Contiene i dati che ogni personaggio ha (nome, punti vita, livello).
- */
+import it.unicam.cs.mpgc.rpg119138.interfaccia.Entita;
+import it.unicam.cs.mpgc.rpg119138.interfaccia.Vitale;
+import java.util.Objects;
 
 public abstract class Eroe implements Entita {
 
-    // Attributi base privati (incapsulamento)
-    private String nome;
+    private final String nome;
     private int hp;
-    private int livello;
-    private int forza;
-    private int mana;
-    private int destrezza;
+    private final int livello;
+    private final int forza;
+    private final int mana;
+    private final int destrezza;
 
-    // Costruttore per inizializzare un eroe
-    public Eroe(String nome, int hp, int livello, int forza, int mana , int destrezza){
-        this.nome=nome;
-        this.hp=hp;
-        this.livello=livello;
-        this.forza=forza;
-        this.mana=mana;
-        this.destrezza=destrezza;
-
+    public Eroe(String nome, int hp, int livello, int forza, int mana, int destrezza) {
+        if (nome == null || nome.isBlank()) throw new IllegalArgumentException("Il nome non può essere vuoto");
+        if (hp <= 0) throw new IllegalArgumentException("Gli HP devono essere positivi");
+        this.nome = nome;
+        this.hp = hp;
+        this.livello = livello;
+        this.forza = forza;
+        this.mana = mana;
+        this.destrezza = destrezza;
     }
 
-    //implementazione attacco base
-    // Rendiamo l'attacco astratto: ogni eroe attacca in modo diverso!
     @Override
-    public abstract void attacca(Entita bersaglio);
+    public abstract void attacca(Vitale bersaglio);
+
+    public boolean haAbbastanzaMana(int costo) {
+        return this.mana >= costo;
+    }
 
     @Override
     public void riceviDanno(int danno) {
-        this.hp -= danno;
-        if (this.hp < 0) this.hp = 0;
-    }
-
-    // Getter (necessari per il Serializzatore JSON del Prof)
-
-    @Override
-    public String getNome() {
-        return nome;
+        if (danno < 0) return;
+        this.hp = Math.max(0, this.hp - danno);
     }
 
     @Override
-    public int getHp() {
-        return hp;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Eroe eroe = (Eroe) o;
+        return Objects.equals(nome, eroe.nome);
     }
 
     @Override
-    public void setHp(int hp) {
-        this.hp = hp;
+    public int hashCode() {
+        return Objects.hash(nome);
     }
 
     @Override
-    public boolean isVivo() {
-        return this.hp > 0;
+    public String toString() {
+        return String.format("%s [HP: %d, LV: %d]", nome, hp, livello);
     }
 
-    public int getLivello() {
-        return livello;
-    }
+    @Override
+    public String getNome() { return nome; }
 
-    public int getForza() {
-        return forza;
-    }
+    @Override
+    public int getHp() { return hp; }
 
-    public int getMana() {
-        return mana;
-    }
+    @Override
+    public void setHp(int hp) { this.hp = hp; }
 
-    public int getDestrezza() {
-        return destrezza;
-    }
+    @Override
+    public boolean isVivo() { return this.hp > 0; }
+
+    public int getLivello() { return livello; }
+    public int getForza() { return forza; }
+    public int getMana() { return mana; }
+    public int getDestrezza() { return destrezza; }
 }

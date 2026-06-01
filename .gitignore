@@ -41,3 +41,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### JPA / H2 (database locale per la persistenza) ###
+*.db
+*.h2.mv.db
+*.h2.trace.db
