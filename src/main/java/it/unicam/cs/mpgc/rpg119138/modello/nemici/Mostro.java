@@ -39,12 +39,12 @@ public abstract class Mostro implements Entita {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hashCode(nome);
     }
 
     @Override
     public String toString() {
-        return String.format("%s [HP: %d]", nome, hp);
+        return nome + " [HP: " + hp + "]";
     }
 
     @Override

@@ -47,12 +47,12 @@ public abstract class Eroe implements Entita {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hashCode(nome);
     }
 
     @Override
     public String toString() {
-        return String.format("%s [HP: %d, LV: %d]", nome, hp, livello);
+        return nome + " [HP: " + hp + ", LV: " + livello + "]";
     }
 
     @Override
