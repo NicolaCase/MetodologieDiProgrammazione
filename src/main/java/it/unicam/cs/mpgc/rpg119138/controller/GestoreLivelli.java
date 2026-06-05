@@ -14,12 +14,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Carica i livelli di gioco dal file livelli.xml.
- * Responsabilità unica: parsing XML e costruzione degli oggetti Livello.
- * Usa le API DOM standard di Java, senza librerie esterne (SOLID - DIP,
- * dipende da astrazioni Java standard e non da librerie di terze parti).
- */
 public class GestoreLivelli {
 
     private static final String FILE_LIVELLI = "/livelli.xml";
@@ -51,20 +45,28 @@ public class GestoreLivelli {
         int id = Integer.parseInt(elemento.getAttribute("id"));
         String nome = elemento.getAttribute("nome");
         boolean sbloccato = Boolean.parseBoolean(elemento.getAttribute("sbloccato"));
-        Mostro nemico = costruisciNemico((Element) elemento.getElementsByTagName("mostro").item(0));
-        return new Livello(id, nome, sbloccato, nemico);
+        Element elementoMostro = (Element) elemento.getElementsByTagName("mostro").item(0);
+        List<Mostro> nemici = costruisciNemici(elementoMostro);
+        return new Livello(id, nome, sbloccato, nemici);
     }
 
-    private Mostro costruisciNemico(Element elemento) {
+    private List<Mostro> costruisciNemici(Element elemento) {
         String tipo = elemento.getAttribute("tipo");
         int hp = Integer.parseInt(elemento.getAttribute("hp"));
         int forza = Integer.parseInt(elemento.getAttribute("forza"));
+        int quantita = Integer.parseInt(elemento.getAttribute("quantita"));
 
-        return switch (tipo) {
-            case "Orco" -> new Orco(tipo, hp, forza);
-            case "Vampiro" -> new Vampiro(tipo, hp, forza);
-            case "Serpente" -> new Serpente(tipo, hp, forza);
-            default -> throw new IllegalArgumentException("Tipo mostro non riconosciuto: " + tipo);
-        };
+        List<Mostro> nemici = new ArrayList<>();
+        for (int i = 0; i < quantita; i++) {
+            nemici.add(creaMostro(tipo, hp, forza));
+        }
+        return nemici;
+    }
+
+    private Mostro creaMostro(String tipo, int hp, int forza) {
+        if (tipo.equals("Orco")) return new Orco(tipo, hp, forza);
+        else if (tipo.equals("Vampiro")) return new Vampiro(tipo, hp, forza);
+        else if (tipo.equals("Serpente")) return new Serpente(tipo, hp, forza);
+        else throw new IllegalArgumentException("Tipo mostro non riconosciuto: " + tipo);
     }
 }
