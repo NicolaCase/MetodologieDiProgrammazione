@@ -64,11 +64,9 @@ public class GestoreLivelli {
     }
 
     private Mostro creaMostro(String tipo, int hp, int forza) {
-        return switch (tipo) {
-            case "Orco" -> new Orco(tipo, hp, forza);
-            case "Vampiro" -> new Vampiro(tipo, hp, forza);
-            case "Serpente" -> new Serpente(tipo, hp, forza);
-            default -> throw new IllegalArgumentException("Tipo mostro non riconosciuto: " + tipo);
-        };
+        if (tipo.equals("Orco")) return new Orco(tipo, hp, forza);
+        else if (tipo.equals("Vampiro")) return new Vampiro(tipo, hp, forza);
+        else if (tipo.equals("Serpente")) return new Serpente(tipo, hp, forza);
+        else throw new IllegalArgumentException("Tipo mostro non riconosciuto: " + tipo);
     }
 }
