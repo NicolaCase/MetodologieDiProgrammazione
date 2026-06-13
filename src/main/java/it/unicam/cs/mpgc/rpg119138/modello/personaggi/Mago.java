@@ -12,4 +12,10 @@ public class Mago extends Eroe {
     public void attacca(Vitale bersaglio) {
         bersaglio.riceviDanno(getMana());
     }
+
+    @Override
+    public void aumentaStatisticheLivello() {
+        setMana(getMana() + 8);
+        aumentaHpMax(10);
+    }
 }

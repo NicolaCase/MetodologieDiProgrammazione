@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.rpg119138.view.SelezioneEroeController"
+      alignment="CENTER" spacing="30"
+      prefWidth="800" prefHeight="600">
+
+    <Label text="Scegli il tuo eroe:" style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+
+    <HBox fx:id="contenuto" alignment="CENTER" spacing="40">
+        <Button text="Guerriero" onAction="#onScegliGuerriero" prefWidth="150" prefHeight="60"/>
+        <Button text="Mago" onAction="#onScegliMago" prefWidth="150" prefHeight="60"/>
+        <Button text="Arciere" onAction="#onScegliArciere" prefWidth="150" prefHeight="60"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.rpg119138.view.MappaController"
+      alignment="CENTER" spacing="30"
+      prefWidth="800" prefHeight="600">
+
+    <Label text="Mappa del Mondo" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+    <Label fx:id="lblEroe" style="-fx-font-size: 14;"/>
+
+    <HBox fx:id="contenitoreLivelli" alignment="CENTER" spacing="20"/>
+
+</VBox>

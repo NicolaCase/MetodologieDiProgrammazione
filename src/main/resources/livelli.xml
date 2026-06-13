@@ -2,15 +2,15 @@
 <livelli>
 
     <livello id="1" nome="Foresta Oscura" sbloccato="true">
-        <mostro tipo="Serpente" quantita="3" hp="40" forza="8"/>
+        <mostro tipo="Serpente" quantita="2" hp="20" forza="5"/>
     </livello>
 
     <livello id="2" nome="Caverna dei Goblin" sbloccato="false">
-        <mostro tipo="Orco" quantita="3" hp="100" forza="12"/>
+        <mostro tipo="Orco" quantita="2" hp="35" forza="8"/>
     </livello>
 
     <livello id="3" nome="Castello Maledetto" sbloccato="false">
-        <mostro tipo="Vampiro" quantita="3" hp="60" forza="15"/>
+        <mostro tipo="Vampiro" quantita="2" hp="45" forza="12"/>
     </livello>
 
 </livelli>

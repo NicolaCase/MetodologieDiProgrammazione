@@ -8,24 +8,28 @@ public abstract class Eroe implements Entita {
 
     private final String nome;
     private int hp;
-    private final int livello;
-    private final int forza;
-    private final int mana;
-    private final int destrezza;
+    private int hpMax;
+    private int livello;
+    private int forza;
+    private int mana;
+    private int destrezza;
 
     public Eroe(String nome, int hp, int livello, int forza, int mana, int destrezza) {
         if (nome == null || nome.isBlank()) throw new IllegalArgumentException("Il nome non può essere vuoto");
         if (hp <= 0) throw new IllegalArgumentException("Gli HP devono essere positivi");
         this.nome = nome;
         this.hp = hp;
+        this.hpMax = hp;
         this.livello = livello;
-        this.forza = forza;
-        this.mana = mana;
-        this.destrezza = destrezza;
+        setForza(forza);
+        setMana(mana);
+        setDestrezza(destrezza);
     }
 
     @Override
     public abstract void attacca(Vitale bersaglio);
+
+    public abstract void aumentaStatisticheLivello();
 
     public boolean haAbbastanzaMana(int costo) {
         return this.mana >= costo;
@@ -67,7 +71,16 @@ public abstract class Eroe implements Entita {
     @Override
     public boolean isVivo() { return this.hp > 0; }
 
+    public void ripristinaHp() { this.hp = this.hpMax; }
+    public void incrementaLivello() { this.livello++; }
+    protected void aumentaHpMax(int incremento) { this.hpMax += incremento; }
+
+    public void setForza(int forza) { this.forza = forza; }
+    public void setMana(int mana) { this.mana = mana; }
+    public void setDestrezza(int destrezza) { this.destrezza = destrezza; }
+
     public int getLivello() { return livello; }
+    public int getHpMax() { return hpMax; }
     public int getForza() { return forza; }
     public int getMana() { return mana; }
     public int getDestrezza() { return destrezza; }

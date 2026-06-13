@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.unicam.cs.mpgc.rpg119138.view.CombattimentoController"
+            prefWidth="800" prefHeight="600">
+
+    <top>
+        <VBox style="-fx-padding: 10;">
+            <Label fx:id="lblEroe" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+            <Label fx:id="lblLivello" style="-fx-font-size: 12;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TextArea fx:id="logCombattimento" editable="false" wrapText="true"/>
+    </center>
+
+    <right>
+        <VBox fx:id="contenitoreNemici" alignment="CENTER" spacing="10"
+              style="-fx-padding: 15;" prefWidth="200"/>
+    </right>
+
+</BorderPane>

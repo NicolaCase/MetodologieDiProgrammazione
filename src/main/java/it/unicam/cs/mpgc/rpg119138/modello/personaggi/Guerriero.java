@@ -12,4 +12,10 @@ public class Guerriero extends Eroe {
     public void attacca(Vitale bersaglio) {
         bersaglio.riceviDanno(getForza());
     }
+
+    @Override
+    public void aumentaStatisticheLivello() {
+        setForza(getForza() + 5);
+        aumentaHpMax(20);
+    }
 }

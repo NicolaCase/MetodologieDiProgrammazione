@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="it.unicam.cs.mpgc.rpg119138.view.MenuController"
+      alignment="CENTER" spacing="20"
+      prefWidth="800" prefHeight="600">
+
+    <Label text="RPG - Gioco di Ruolo" style="-fx-font-size: 32; -fx-font-weight: bold;"/>
+
+    <Button fx:id="btnNuova" text="Nuova Partita" onAction="#onNuovaPartita" prefWidth="200"/>
+    <Button text="Carica Partita" onAction="#onCaricaPartita" prefWidth="200"/>
+
+</VBox>

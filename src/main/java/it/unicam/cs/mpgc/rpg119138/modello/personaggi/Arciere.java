@@ -12,4 +12,10 @@ public class Arciere extends Eroe {
     public void attacca(Vitale bersaglio) {
         bersaglio.riceviDanno(getDestrezza());
     }
+
+    @Override
+    public void aumentaStatisticheLivello() {
+        setDestrezza(getDestrezza() + 6);
+        aumentaHpMax(15);
+    }
 }
